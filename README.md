@@ -135,6 +135,12 @@ To use a Docker image to build mGBA, simply run the following command while in t
 
 	docker run --rm -it -v ${PWD}:/home/mgba/src mgba/windows:w32
 
+When using Podman rootless, use this command:
+
+```
+podman run --rm -v "${PWD}":/home/mgba/src:Z --userns=keep-id docker.io/mgba/fedora:42
+```
+
 After starting the Docker container, it will produce a `build-win32` directory with the build products. Replace `mgba/windows:w32` with another Docker image for other platforms, which will produce a corresponding other directory. The following Docker images available on Docker Hub:
 
 - mgba/3ds
